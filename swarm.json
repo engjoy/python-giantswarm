@@ -1,0 +1,67 @@
+{
+    "app_name": "suricate",
+    "services": [
+        {
+            "service_name": "suricate",
+            "components": [
+                {
+                    "component_name": "frontend",
+                    "image": "registry.giantswarm.io/engjoy/suricate:1.1",
+                    "args": [
+                        "python",
+                        "/tmp/frontend.py"
+                    ],
+                    "ports": [
+                        8888
+                    ],
+                    "dependencies": [
+                        {
+                            "name": "rabbit",
+                            "port": 5672
+                        },
+                        {
+                            "name": "mongo",
+                            "port": 27017
+                        }
+                    ],
+                    "domains": {
+                        "suricate-engjoy.gigantic.io": 8888
+                    }
+                },
+                {
+                    "component_name": "execnode",
+                    "image": "registry.giantswarm.io/engjoy/suricate:1.1",
+                    "args": [
+                        "python",
+                        "/tmp/execnode.py",
+                        "foo"
+                    ],
+                    "dependencies": [
+                        {
+                            "name": "rabbit",
+                            "port": 5672
+                        },
+                        {
+                            "name": "mongo",
+                            "port": 27017
+                        }
+                    ]
+                },
+                {
+                    "component_name": "rabbit",
+                    "image": "rabbitmq",
+                    "ports": [
+                        5672
+                    ]
+                },
+                {
+                    "component_name": "mongo",
+                    "image": "dockerfile/mongodb",
+                    "ports": [
+                        27017
+                    ]
+                }
+            ]
+        }
+    ]
+}
