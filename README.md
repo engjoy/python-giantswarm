@@ -1,7 +1,7 @@
 
 # Running Python based service on Giant Swarm
 
-Here we show how [suricate](http://www.github.com/engjoy/suricate) can be run using [giantswarm.io](https://www.giantswarm.io). Giant Swarm is a cool solution to run your containerized app in the cloud. Esp the environment, companies make is a compelling solution to do your devops.
+Here we show how [suricate](http://www.github.com/engjoy/suricate) can be run using [giantswarm.io](https://www.giantswarm.io). Giant Swarm is a cool solution to run your containerized app in the cloud. Especially the environment & companies concept makes it a compelling solution to do your devops.
 
 ## Setup
 
